@@ -1,12 +1,10 @@
 import SwiftUI
 
-@main
-struct TRexApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+//@main
+struct TRexApp: View {
+//    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    var body: some Scene {
-        Settings {
-            SettingsView().environmentObject(Preferences.shared)
-        }
+    var body: some View {
+        SettingsView()
     }
 }

@@ -47,6 +47,7 @@ playground.xcworkspace
 # .swiftpm
 
 .build/
+Build
 
 # CocoaPods
 #
@@ -89,3 +90,8 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_Store
+
+# XCode crap
+
+TRex.xcodeproj/xcuserdata/
+TRex.xcodeproj/project.xcworkspace/xcuserdata/

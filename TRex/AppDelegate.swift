@@ -1,8 +1,13 @@
 import Combine
 import KeyboardShortcuts
 import SwiftUI
+import Cocoa
 
+
+@main
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var window: NSWindow!
+    
     var menuBarItem: MenubarItem?
     var trex = TRex()
     let preferences = Preferences.shared
@@ -10,6 +15,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var onboardingWindowController: NSWindowController?
 
     func applicationDidFinishLaunching(_: Notification) {
+        let contentView = TRexApp()
+        
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 400, height: 400),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.center()
+        window.setFrameAutosaveName("Main Window")
+        window.contentView = NSHostingView(rootView: contentView)
+        window.makeKeyAndOrderFront(nil)
+        
         let bundleID = Bundle.main.bundleIdentifier!
 
         if NSRunningApplication.runningApplications(withBundleIdentifier: bundleID).count > 1 {
