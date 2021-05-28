@@ -28,18 +28,9 @@ If you can see it on your screen - TRex can copy it.
 
 ## How to get TRex
 ### GitHub
-Download from [GitHub Releases](https://github.com/amebalabs/TRex/releases)
+Download from [GitHub Releases](https://github.com/y4rr/TRex/releases)
 
-### Homebrew
-or Install with Homebrew
-
-```
-brew install melonamin/formulae/trex
-```
-### App Store
-or if you want to support us buy it from the [App Store](https://apps.apple.com/us/app/trex-easy-ocr/id1554515538)
-
-Runs on macOS Big Sur (11.0) and up.
+Runs on macOS Catalina (10.15) and up.
 
 ## ...or build it from source
 - Clone or download a copy of this repository
