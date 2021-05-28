@@ -20,7 +20,7 @@ struct WelcomeView: View {
                 .multilineTextAlignment(.center)
                 .font(.system(size: 50))
             Text("Easy to use text recognition.")
-                .font(.title3)
+                .font(.title)
             Spacer()
                 .frame(height: 100)
         }
@@ -70,7 +70,7 @@ struct FinishView: View {
             Text("All Set!")
                 .font(.system(size: 50))
             Text("Enjoy using the easiest text extraction tool.")
-                .font(.title3)
+                .font(.title)
                 .padding()
             Text("🦖🦖🦖")
                 .font(.title)

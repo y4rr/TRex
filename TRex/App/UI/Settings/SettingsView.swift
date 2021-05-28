@@ -11,22 +11,22 @@ struct SettingsView: View {
         TabView {
             GeneralSettingsView()
                 .tabItem {
-                    Label("General", systemImage: "gear")
+                    Label2(title: "General", systemImage: "gear")
                 }
                 .tag(Tabs.general)
             ShortcutsSettingsView()
                 .tabItem {
-                    Label("Shortcuts", systemImage: "command")
+                    Label2(title: "Shortcuts", systemImage: "command")
                 }
                 .tag(Tabs.general)
             AutomationSettingsView()
                 .tabItem {
-                    Label("Automation", systemImage: "bolt.badge.a")
+                    Label2(title: "Automation", systemImage: "bolt.badge.a")
                 }
                 .tag(Tabs.automation)
             AboutSettingsView()
                 .tabItem {
-                    Label("About", systemImage: "info")
+                    Label2(title: "About", systemImage: "info")
                 }
                 .tag(Tabs.about)
         }
@@ -34,8 +34,20 @@ struct SettingsView: View {
     }
 }
 
+
+func Label2(title: String, systemImage: String) -> some View {
+    var body: some View {
+        HStack {
+            Text(title)
+            Image(systemImage)
+        }
+    }
+    
+    return body
+}
+
 struct GeneralSettingsView: View {
-    @EnvironmentObject var preferences: Preferences
+    @ObservedObject var preferences = Preferences.shared
     @ObservedObject private var launchAtLogin = LaunchAtLogin.observable
 
     let width: CGFloat = 70
@@ -91,7 +103,6 @@ struct MenuBarIconView: View {
         VStack(spacing: 2) {
             item.image()
                 .resizable()
-                .accentColor(isSelected ? .blue : .white)
                 .frame(width: 30, height: 30, alignment: .center)
                 .padding(3)
                 .border(isSelected ? Color.blue : Color.clear, width: 2)
@@ -120,7 +131,7 @@ struct ShortcutsSettingsView: View {
 }
 
 struct AutomationSettingsView: View {
-    @EnvironmentObject var preferences: Preferences
+    @ObservedObject var preferences = Preferences.shared
     let width: CGFloat = 80
     var body: some View {
         Form {
@@ -163,7 +174,7 @@ struct AboutSettingsView: View {
 
                 VStack(alignment: .leading) {
                     Text("TRex")
-                        .font(.title3)
+                        .font(.title)
                     Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "") (\(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""))")
                         .font(.subheadline)
                     Text("Copyright ©2021 Ameba Labs. All rights reserved.")

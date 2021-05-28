@@ -33,17 +33,17 @@ class Preferences: ObservableObject {
             var image: NSImage?
             switch self {
             case .Option1:
-                image = NSImage(named: "trex")
+                image = NSImage(named: "trex")!
             case .Option2:
-                image = NSImage(systemSymbolName: "perspective", accessibilityDescription: nil)
+                image = NSImage(named: "perspective")
             case .Option3:
-                image = NSImage(systemSymbolName: "crop", accessibilityDescription: nil)
+                image = NSImage(named: "crop")
             case .Option4:
-                image = NSImage(systemSymbolName: "textbox", accessibilityDescription: nil)
+                image = NSImage(named: "textbox")
             case .Option5:
-                image = NSImage(systemSymbolName: "doc.text.fill.viewfinder", accessibilityDescription: nil)
+                image = NSImage(named: "doc.text.fill.viewfinder")
             case .Option6:
-                image = NSImage(systemSymbolName: "text.cursor", accessibilityDescription: nil)
+                image = NSImage(named: "text.cursor")
             }
             image?.isTemplate = true
             return image!
